@@ -1,6 +1,11 @@
 /**
  * Represents a mathematical operation between two double values.
  */
+/*
+ * It may seem weird to define this here, but we could easily replace double
+ * with Object and allow this
+ * calculator to perform operations on a wide range of arguments
+ */
 interface Operation {
     /**
      * Executes the mathematical operation on the given operands.

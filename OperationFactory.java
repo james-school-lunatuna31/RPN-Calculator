@@ -8,6 +8,13 @@
 public class OperationFactory {
 
     /**
+     * Creates a operation factory
+     */
+    public OperationFactory() {
+
+    }
+
+    /**
      * Returns an {@code Operation} based on the specified token.
      * 
      * @param token the operation token, which can be "+", "-", "*", "/", or "^".

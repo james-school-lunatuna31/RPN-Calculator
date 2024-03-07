@@ -19,8 +19,6 @@ public class RPNCalc {
 
     /**
      * Constructs a new RPNCalc with the specified equation.
-     * 
-     * @param equation the RPN equation to be evaluated, as an array of strings.
      */
     public RPNCalc() {
     }

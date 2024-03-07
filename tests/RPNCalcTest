@@ -1,0 +1,54 @@
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+
+public class RPNCalcTest {
+
+    @Test
+    public void testAddition() {
+        String[] equation = {"2", "3", "+"};
+        RPNCalc calc = new RPNCalc(equation);
+        Assertions.assertEquals(5.0, calc.eval());
+    }
+
+    @Test
+    public void testSubtraction() {
+        String[] equation = {"5", "3", "-"};
+        RPNCalc calc = new RPNCalc(equation);
+        Assertions.assertEquals(2.0, calc.eval());
+    }
+
+    @Test
+    public void testMultiplication() {
+        String[] equation = {"4", "5", "*"};
+        RPNCalc calc = new RPNCalc(equation);
+        Assertions.assertEquals(20.0, calc.eval());
+    }
+
+    @Test
+    public void testDivision() {
+        String[] equation = {"10", "2", "/"};
+        RPNCalc calc = new RPNCalc(equation);
+        Assertions.assertEquals(5.0, calc.eval());
+    }
+
+    @Test
+    public void testComplexExpression() {
+        String[] equation = {"5", "1", "2", "+", "4", "*", "+", "3", "-"};
+        RPNCalc calc = new RPNCalc(equation);
+        Assertions.assertEquals(14.0, calc.eval());
+    }
+
+    @Test
+    public void testInvalidExpression() {
+        String[] equation = {"2", "+"};
+        RPNCalc calc = new RPNCalc(equation);
+        Assertions.assertThrows(Error.class, calc::eval);
+    }
+
+    @Test
+    public void testUnsupportedOperation() {
+        String[] equation = {"2", "3", "^"};
+        RPNCalc calc = new RPNCalc(equation);
+        Assertions.assertThrows(Error.class, calc::eval);
+    }
+}

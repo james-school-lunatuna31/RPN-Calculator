@@ -18,43 +18,87 @@ public class OperationFactory {
     public static Operation getOperation(String token) {
         switch (token) {
             case "+":
-                return new Operation() {
-                    @Override
-                    public double execute(double a, double b) {
-                        return a + b;
-                    }
-                };
+                return createAdditionOperation();
             case "-":
-                return new Operation() {
-                    @Override
-                    public double execute(double a, double b) {
-                        return a - b;
-                    }
-                };
+                return createSubtractionOperation();
             case "*":
-                return new Operation() {
-                    @Override
-                    public double execute(double a, double b) {
-                        return a * b;
-                    }
-                };
+                return createMultiplicationOperation();
             case "/":
-                return new Operation() {
-                    @Override
-                    public double execute(double a, double b) {
-                        return a / b;
-                    }
-                };
+                return createDivisionOperation();
             case "^":
-                return new Operation() {
-                    @Override
-                    public double execute(double a, double b) {
-                        return Math.pow(a, b);
-                    }
-                };
+                return createExponentiationOperation();
             default:
                 throw new IllegalArgumentException("Invalid operation token: " + token);
         }
     }
 
+    /**
+     * Creates an addition operation.
+     * 
+     * @return An {@code Operation} that performs addition.
+     */
+    private static Operation createAdditionOperation() {
+        return new Operation() {
+            @Override
+            public double execute(double a, double b) {
+                return a + b;
+            }
+        };
+    }
+
+    /**
+     * Creates a subtraction operation.
+     * 
+     * @return An {@code Operation} that performs subtraction.
+     */
+    private static Operation createSubtractionOperation() {
+        return new Operation() {
+            @Override
+            public double execute(double a, double b) {
+                return a - b;
+            }
+        };
+    }
+
+    /**
+     * Creates a multiplication operation.
+     * 
+     * @return An {@code Operation} that performs multiplication.
+     */
+    private static Operation createMultiplicationOperation() {
+        return new Operation() {
+            @Override
+            public double execute(double a, double b) {
+                return a * b;
+            }
+        };
+    }
+
+    /**
+     * Creates a division operation.
+     * 
+     * @return An {@code Operation} that performs division.
+     */
+    private static Operation createDivisionOperation() {
+        return new Operation() {
+            @Override
+            public double execute(double a, double b) {
+                return a / b;
+            }
+        };
+    }
+
+    /**
+     * Creates an exponentiation operation.
+     * 
+     * @return An {@code Operation} that performs exponentiation.
+     */
+    private static Operation createExponentiationOperation() {
+        return new Operation() {
+            @Override
+            public double execute(double a, double b) {
+                return Math.pow(a, b);
+            }
+        };
+    }
 }

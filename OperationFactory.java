@@ -18,15 +18,40 @@ public class OperationFactory {
     public static Operation getOperation(String token) {
         switch (token) {
             case "+":
-                return (a, b) -> a + b;
+                return new Operation() {
+                    @Override
+                    public double execute(double a, double b) {
+                        return a + b;
+                    }
+                };
             case "-":
-                return (a, b) -> a - b;
+                return new Operation() {
+                    @Override
+                    public double execute(double a, double b) {
+                        return a - b;
+                    }
+                };
             case "*":
-                return (a, b) -> a * b;
+                return new Operation() {
+                    @Override
+                    public double execute(double a, double b) {
+                        return a * b;
+                    }
+                };
             case "/":
-                return (a, b) -> a / b;
+                return new Operation() {
+                    @Override
+                    public double execute(double a, double b) {
+                        return a / b;
+                    }
+                };
             case "^":
-                return (a, b) -> Math.pow(a, b);
+                return new Operation() {
+                    @Override
+                    public double execute(double a, double b) {
+                        return Math.pow(a, b);
+                    }
+                };
             default:
                 throw new IllegalArgumentException("Invalid operation token: " + token);
         }
